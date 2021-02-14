@@ -7,6 +7,37 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     
+    <bean id="ccoach" class="firstIOCgetset.CricketCoach">
+   	<property name="ifortune" ref="fortune"/>
+   	<property name="name" value="Vaishali"/>
+   	<property name="email" value="vishalikalra@ncuindia.edu"/>
+   	
+   	<property name="team_name" value="IPL_Banglore"/>
+   	<property name="add" ref="address"></property>
+   	</bean>
+   	
+   	
+   	<!-- setter injection -->
+ 	<!-- <bean id="myCCoach"
+ 		class="com.ncu.SI.CricketCoach">
+ 		<property name="ifortune" ref="fortune"/>
+   	</bean>-->
+  	<!-- Injected beans definition here -->
+  	
+  	<bean id="fortune"
+ 		class="firstIOCgetset.Fortune">	
+ 		
+  	</bean>
+  	
+  	<bean id="address" class="com.ncu.setter.Address">
+  	<property name="city" value="Gurgaon"/>
+  	<property name="house_no" value="461/7"/>
+  	<property name="state" value="Gurgaon"/>
+  	<property name="pincode" value="121102"/>
+  	
+ 
+  	
+  	</bean>
     <bean id="producer" class = "sp.Producer">   </bean>
     <bean id="myBCoach"
  		class="firstIOC.Baseball">
