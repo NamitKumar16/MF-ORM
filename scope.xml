@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init = "false"  xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+     <bean id="fortune"
+	 		class="scope.Fortune">	
+	  	</bean> 
+	  	
+		<bean id="myCricketCoach" class="scope.CricketCoach"> 
+			<constructor-arg>  
+				<ref bean="fortune"/>  
+			</constructor-arg>  
+			<constructor-arg value="namit"></constructor-arg>  
+			<constructor-arg value="namit19csu185@ncuindia.edu"></constructor-arg>  
+			<constructor-arg value="20" type="Integer"></constructor-arg>  
+		</bean>  
+	  
+	  	<bean id = "address" class = "scope.Address"> 
+			<constructor-arg name="city" value="Gurugram"></constructor-arg>  
+			<constructor-arg name="state" value="Haryana"></constructor-arg>  
+			<constructor-arg name="country" value="India"></constructor-arg>
+		</bean>
+		
+		  <bean id="myCricketCoach1" class="scope.CricketCoach"> 
+				<property name="fortune" ref="fortune"/> 
+				 <property name="name" value="manish"/>
+				 <property name="email_id" value = "namit19csu185@ncuindia.edu"/>
+				 <property name="age" value = "20"/>
+				 <property name = "address" ref="address"></property>
+		</bean> 
+		
+		<bean id="myCricketCoach2" class="scope.CricketCoach"> 
+			<constructor-arg>  
+				<ref bean="fortune"/>  
+			</constructor-arg>  
+			<constructor-arg value="manish"></constructor-arg>  
+			<constructor-arg value="manish19CSU173@ncuindia.edu"></constructor-arg>  
+			<constructor-arg value="20" type="Integer"></constructor-arg> 
+			<constructor-arg>  
+				<ref bean="address"/>  
+			</constructor-arg> 
+		</bean> 
+		
+		<bean id = "address1" class = "scope.Address"> 
+			<constructor-arg name="city" value="Gurugram"></constructor-arg>  
+			<constructor-arg name="state" value="Haryana"></constructor-arg>  
+			<constructor-arg name="country" value="India"></constructor-arg>
+		</bean>
+		
+		<bean id ="TC" class  = "scope.TennisCoach" scope = "singleton">
+			<constructor-arg>  
+				<ref bean="fortune"/>  
+			</constructor-arg>  
+			<constructor-arg value="manish"></constructor-arg>  
+			<constructor-arg value="manish19CSU173@ncuindia.edu"></constructor-arg>  
+			<constructor-arg value="20" type="Integer"></constructor-arg> 
+			<constructor-arg>  
+				<ref bean="address"/>  
+			</constructor-arg> 
+		</bean>
+		
+		<bean id ="TC1" class  = "scope.TennisCoach" scope = "prototype">
+			<property name="fortune" ref="fortune"/> 
+			<property name = "address" ref="address"></property>
+		</bean>
+</beans>
+    
